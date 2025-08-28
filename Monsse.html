@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello Kitty | Página Rosita</title>
+  <style>
+    :root{
+      --pink-1:#ffe4f1;
+      --pink-2:#ffd1e8;
+      --pink-3:#ff9ecf;
+      --pink-4:#ff6fb5;
+      --text:#4a154b;
+      --white:#fff;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; 
+      min-height:100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 70% at 20% 20%, var(--pink-1), transparent 60%),
+        linear-gradient(135deg, var(--pink-2), var(--pink-4));
+      background-blend-mode: screen;
+      display:flex; align-items:center; justify-content:center;
+      padding:24px;
+    }
+    .container{
+      max-width: 980px; width:100%;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(8px);
+      border: 2px solid var(--pink-3);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(255,111,181,0.35);
+      overflow: hidden;
+    }
+    .header{
+      background: linear-gradient(90deg, var(--pink-3), var(--pink-4));
+      padding: 24px; text-align: center; color: white;
+    }
+    .header h1{ margin:0; font-size: clamp(24px, 4vw, 40px); letter-spacing: .5px; }
+    .badge{ display:inline-block; background:var(--pink-1); color:#a01263; padding:6px 12px; border-radius:999px; font-weight:700; margin-bottom:10px; }
+
+    .content{ display:grid; grid-template-columns: 1fr; gap:24px; padding:24px; }
+    @media (min-width: 720px){ .content{ grid-template-columns: 1.1fr .9fr; } }
+
+    .card{ background: var(--white); border:1px solid var(--pink-2); border-radius:20px; padding:20px; }
+    .card h2{ margin-top:0 }
+
+    img.kitty{
+      width:100%; height:auto; display:block;
+      border-radius: 18px; border: 4px solid var(--pink-3);
+      box-shadow: 0 8px 18px rgba(255,111,181,.25);
+    }
+
+    .button{
+      display:inline-block; margin-top:14px; padding:12px 18px; border-radius:12px;
+      background: var(--pink-4); color:white; text-decoration:none; font-weight:800;
+      box-shadow: 0 6px 12px rgba(255,111,181,.35);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .button:hover{ transform: translateY(-2px); box-shadow: 0 10px 18px rgba(255,111,181,.4); }
+
+    .footer{ text-align:center; padding:16px 24px; font-size:14px; opacity:.85; }
+
+    /* corazones suaves en el fondo */
+    .hearts{ position: fixed; inset: 0; pointer-events:none; opacity: .65; }
+    .hearts::before, .hearts::after{
+      content:""; position:absolute; inset:0; background-repeat:no-repeat;
+    }
+    .hearts::before{
+      background-image:
+        radial-gradient(8px 8px at 30% 20%, rgba(255,111,181,.35) 40%, transparent 41%),
+        radial-gradient(10px 10px at 70% 80%, rgba(255,158,207,.25) 40%, transparent 41%),
+        radial-gradient(6px 6px at 80% 30%, rgba(255,158,207,.3) 40%, transparent 41%);
+    }
+    .hearts::after{
+      background-image:
+        radial-gradient(7px 7px at 15% 75%, rgba(255,158,207,.25) 40%, transparent 41%),
+        radial-gradient(9px 9px at 55% 45%, rgba(255,111,181,.25) 40%, transparent 41%);
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
+  <main class="container" role="main">
+    <div class="header">
+      <span class="badge">           </span>
+      <h1>¡Hola!</h1>
+    </div>
+
+    <section class="content">
+      <div class="card">
+        <h2>Bienvenid@</h2>
+        <p>
+          Esta es la pagina de perfil de <strong>Monsse</strong>  
+        </p>
+        <a class="button" href="#" onclick="alert('¡Que tengas un día bonito!')">Dame un meow 🐾</a>
+      </div>
+
+      <div class="card">
+        <!--
+          Reemplaza "hello-kitty.png" con la ruta/URL de tu imagen.
+          Si usas un archivo local, colócalo en la misma carpeta que este HTML.
+        -->
+        <img class="kitty" src="Hello.png" alt="Imagen de Hello Kitty" />
+      </div>
+    </section>
+
+    <div class="footer">Hecho con 💗</div>
+  </main>
+</body>
+</html>
